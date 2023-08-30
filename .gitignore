@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.pyc 
+*.so
+*.wav
+
+build/
+dist/
+RUTTS.egg-info
+model/
