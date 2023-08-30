@@ -12,7 +12,7 @@ classifiers = [
  
 setup(
   name='RUTTS',
-  version='0.1.9',
+  version='0.1.10',
   description='russian text to speech',
   long_description=open("./README.md").read(),
   long_description_content_type='text/markdown',

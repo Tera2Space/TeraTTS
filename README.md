@@ -21,7 +21,7 @@
   text = "Привет мир!"
   print(f"Текст: {text}")
 
-  #! Предобработка текста (это по желанию, но сильно улучшает качество!)
+  #! Предобработка текста (это по желанию, но сильно улучшает качество!) для этого вам нужно будет `pip install transformers torch==1.13.1`
   from RUTTS.ruaccent import RUAccent #https://github.com/Den4ikAI/ruaccent
   accentizer = RUAccent(workdir="./model")#allow_cuda=False что бы отключить использование видеокарты
   # load(omograph_model_size='medium', dict_load_startup=False): 
