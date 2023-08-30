@@ -12,8 +12,10 @@ classifiers = [
  
 setup(
   name='RUTTS',
-  version='0.1.7',
+  version='0.1.9',
   description='russian text to speech',
+  long_description=open("./README.md").read(),
+  long_description_content_type='text/markdown',
   url='https://github.com/Tera2Space/RUTTS',  
   author='Tera Space',
   author_email='tera2space@gmail.com',
