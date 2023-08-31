@@ -1,5 +1,4 @@
 from RUTTS import TTS
-from ruaccent import RUAccent
 
 # Создание модели TTS с указанным именем
 # Примечание: Вы можете найти все модели по адресу https://huggingface.co/TeraTTS, включая модель GLADOS
@@ -7,6 +6,7 @@ tts = TTS("TeraTTS/natasha-g2p-vits", add_time_to_end=0.8)  # Вы можете 
 
 text = "Привет, мир!"
 # Опционально: Предобработка текста (улучшает качество)
+from ruaccent import RUAccent
 accentizer = RUAccent(workdir="./model")
 
 # Загрузка моделей акцентуации и словарей
