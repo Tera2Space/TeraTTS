@@ -1,27 +1,29 @@
 from RUTTS import TTS
+from ruaccent import RUAccent
 
-#! Cоздать модель по имени
-# P.S все модели https://huggingface.co/TeraTTS P.S там есть модель для GLADOS
-tts = TTS("TeraTTS/natasha-g2p-vits") # Можно передать параметр add_time_to_end (по умолчанию = 0.8) это кол-во добавленных секунд в аудио для хорошего звучания
+# Создание модели TTS с указанным именем
+# Примечание: Вы можете найти все модели по адресу https://huggingface.co/TeraTTS, включая модель GLADOS
+tts = TTS("TeraTTS/natasha-g2p-vits", add_time_to_end=0.8)  # Вы можете настроить 'add_time_to_end' для продолжительности аудио
 
-text = "Привет мир!"
-print(f"Текст: {text}")
+text = "Привет, мир!"
+# Опционально: Предобработка текста (улучшает качество)
+accentizer = RUAccent(workdir="./model")
 
-#! Предобработка текста (это по желанию, но сильно улучшает качество!)  для этого вам нужно будет `pip install transformers torch==1.13.1`
-from RUTTS.ruaccent import RUAccent #https://github.com/Den4ikAI/ruaccent
-accentizer = RUAccent(workdir="./model")#allow_cuda=False что бы отключить использование видеокарты
-# load(omograph_model_size='medium', dict_load_startup=False): 
-# Загрузка моделей и словарей. На данные момент доступны две модели: medium (рекомендуется к использованию) и small. 
-# Переменная dict_load_startup отвечает за загрузку всего словаря (требуется больше ОЗУ), 
-# либо во время работы для необходимых слов (экономит ОЗУ, но требует быстрые ЖД и работает медленее)
+# Загрузка моделей акцентуации и словарей
+# Доступны две модели: 'medium' (рекомендуется) и 'small'.
+# Переменная 'dict_load_startup' управляет загрузкой словаря при запуске (больше памяти) или загрузкой его по мере необходимости во время выполнения (экономия памяти, но медленнее).
+# Переменная disable_accent_dict отключает использование словаря (все ударения расставляет нейросеть). Данная функция экономит ОЗУ, по скорости работы сопоставима со всем словарём в ОЗУ.
 accentizer.load(omograph_model_size='medium', dict_load_startup=False)
+
+# Обработка текста с учетом ударений и буквы ё
 text = accentizer.process_all(text)
 print(f"Текст с ударениями и ё: {text}")
 
-#! Синтез
-#lenght_scale - замедлить аудио для хорошего звучания, параметр по умолчанию передается как 1.2, указан для примера
-audio = tts(text, lenght_scale=1.2) # Создать аудио. Можно ставить ударения используя +
-tts.play_audio(audio) # Проиграть созданное аудио
-tts.save_wav(audio, "./test.wav") # Сохранить аудио
+# Синтез речи
+# 'length_scale' можно использовать для замедления аудио для лучшего звучания (по умолчанию 1.2, указано здесь для примера)
+audio = tts(text, length_scale=1.2)  # Создать аудио. Можно добавить ударения, используя '+'
+tts.play_audio(audio)  # Воспроизвести созданное аудио
+tts.save_wav(audio, "./test.wav")  # Сохранить аудио в файл
 
-tts(text, play=True, lenght_scale=1.2) # Создать аудио и сразу проиграть его
+# Создать аудио и сразу его воспроизвести
+tts(text, play=True, length_scale=1.2)
