@@ -1,1 +1,0 @@
-from .ruaccent import RUAccent
