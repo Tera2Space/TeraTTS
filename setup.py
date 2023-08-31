@@ -12,7 +12,7 @@ classifiers = [
  
 setup(
   name='RUTTS',
-  version='0.1.10',
+  version='0.1.11',
   description='russian text to speech',
   long_description=open("./README.md").read(),
   long_description_content_type='text/markdown',
@@ -23,5 +23,5 @@ setup(
   classifiers=classifiers,
   keywords='tts', 
   packages=find_packages(),
-  install_requires=['scipy', 'gruut', 'gruut-lang-ru', 'sounddevice', 'onnxruntime', 'huggingface-hub', "tok"] 
+  install_requires=['scipy', 'gruut', 'gruut-lang-ru', 'sounddevice', 'onnxruntime', 'huggingface-hub', "tok", "transformers", "numpy", "sentencepiece", "ruaccent"] 
 )
