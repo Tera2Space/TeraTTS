@@ -6,7 +6,7 @@ pip install RUTTS
 ```
 Также вы можете установить используя Git:
 ```
-pip install -e git+https://github.com/Tera2Space/RUTTS#egg=RUTTS**
+pip install -e git+https://github.com/Tera2Space/RUTTS#egg=RUTTS
 ```
 # Ошибки
 1)Если на Windows у вас **ошибка при установке**,нужно просто **скачать Visual Studio [здесь](https://visualstudio.microsoft.com/ru/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false)** и при установке выбрать галочку около **Разработка классических приложений на С++**
