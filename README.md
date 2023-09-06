@@ -12,6 +12,8 @@ pip install -e git+https://github.com/Tera2Space/RUTTS#egg=RUTTS
 1)Если на Windows у вас **ошибка при установке**,нужно просто **скачать Visual Studio [здесь](https://visualstudio.microsoft.com/ru/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false)** и при установке выбрать галочку около **Разработка классических приложений на С++**
 
 2)Если **после установки не работает** что-то, **убедитесь что модуль скачан последней версии**(удалить и скачать) и **так же что названия моделей есть на** https://huggingface.co/TeraTTS
+
+3)Если ничего не помогло **обратитесь за помощью в https://t.me/teraspace_chat**
 # Использование
 
 ```python  
