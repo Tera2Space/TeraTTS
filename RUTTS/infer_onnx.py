@@ -19,8 +19,7 @@ class TTS:
                               local_dir_use_symlinks=False
                             )
         
-        sess_options = onnxruntime.SessionOptions()
-        self.model = onnxruntime.InferenceSession(os.path.join(model_dir, "exported/model.onnx"), sess_options=sess_options)
+        self.model = onnxruntime.InferenceSession(os.path.join(model_dir, "exported/model.onnx"), providers=['CPUExecutionProvider'])
         
         if os.path.exists(os.path.join(model_dir, "exported/dictionary.txt")):
             from .tokenizer import TokenizerG2P
