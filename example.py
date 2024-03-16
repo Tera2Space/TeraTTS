@@ -4,13 +4,10 @@ from TeraTTS import TTS
 
 # Опционально: Предобработка текста (улучшает качество)
 from ruaccent import RUAccent
-accentizer = RUAccent(workdir="./model")
+accentizer = RUAccent()
 
 # Загрузка моделей акцентуации и словарей
-# Доступны две модели: 'medium' (рекомендуется) и 'small'.
-# Переменная 'dict_load_startup' управляет загрузкой словаря при запуске (больше памяти) или загрузкой его по мере необходимости во время выполнения (экономия памяти, но медленнее).
-# Переменная disable_accent_dict отключает использование словаря (все ударения расставляет нейросеть). Данная функция экономит ОЗУ, по скорости работы сопоставима со всем словарём в ОЗУ.
-accentizer.load(omograph_model_size='big_poetry', use_dictionary=True)
+accentizer.load(omograph_model_size='turbo', use_dictionary=True)
 
 # Обработка текста с учетом ударений и буквы ё
 text = accentizer.process_all(text)
