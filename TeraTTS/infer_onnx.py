@@ -64,7 +64,7 @@ class TTS:
         ret = num2words(match, lang ='ru')
         return ret 
     
-    def __call__(self, text: str, play = False, lenght_scale=1.2):
+    def __call__(self, text: str, play = False, length_scale=1.2):
         if self.preprocess_trans:
             text = translit(text, 'ru')
         
@@ -74,7 +74,7 @@ class TTS:
         text = np.expand_dims(np.array(phoneme_ids, dtype=np.int64), 0)
         text_lengths = np.array([text.shape[1]], dtype=np.int64)
         scales = np.array(
-            [0.667, lenght_scale, 0.8],
+            [0.667, length_scale, 0.8],
             dtype=np.float32,
         )
         audio = self.model.run(
